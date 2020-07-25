@@ -1,4 +1,3 @@
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -195,7 +194,7 @@ public class Team {
                 this.score += playedScore;
                 players.get(battingSidePlayer).updateBall();
                 players.get(battingSidePlayer).updateScore(playedScore);
-                commentatorMessage += " | scoured : " + playedScore;
+                commentatorMessage += " | scored : " + playedScore;
                 break;
             case 1:
             case 3:
@@ -203,7 +202,7 @@ public class Team {
                 this.score += playedScore;
                 players.get(battingSidePlayer).updateBall();
                 players.get(battingSidePlayer).updateScore(playedScore);
-                commentatorMessage += " | scoured : " + playedScore;
+                commentatorMessage += " | scored : " + playedScore;
                 changeBattingSidePlayer();
                 break;
             case 5:
@@ -227,6 +226,8 @@ public class Team {
                 // Get the next bat's men if all wickets are not gone
                 isAllWicketsFall = getNextBatsMen();
                 break;
+            default:
+                throw new IllegalArgumentException("Wrong argument has found");
         }
         return isAllWicketsFall;
     }

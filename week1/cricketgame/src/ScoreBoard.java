@@ -41,7 +41,29 @@ public class ScoreBoard {
         System.out.println();
         System.out.println("Welcome to Cricket Match : " + team1.getName() + " Vs " + team2.getName());
         System.out.println();
+        System.out.println(team1.getName() + " won the toss" );
         System.out.println("Press p or P for hit a run");
+    }
+
+    /**
+     * get toss
+     *
+     * @return toss value
+     */
+    public static int toss() {
+        return Randomizer.generate(0, 1);
+    }
+
+    /**
+     *set team1 win the toss
+     */
+    public void getToss(){
+        if (toss() == 1) {
+            Team temp = team1;
+            team1 = team2;
+            team2 = temp;
+        }
+
     }
 
     /**
@@ -67,7 +89,7 @@ public class ScoreBoard {
      */
     private void generateTeamScoreBoard(Team team) {
         System.out.println();
-        System.out.println(team.getName() + " :  " + team.getScore() + "/" + team.getWickets() +" (Overs "+team.getOvers()+")");
+        System.out.println(team.getName() + " :  " + team.getScore() + "/" + team.getWickets() + " (Overs " + team.getOvers() + ")");
         System.out.println();
         System.out.println(team.getTeamDetails());
         System.out.println();
@@ -75,7 +97,7 @@ public class ScoreBoard {
     }
 
     /**
-     * Generate breif winning team score board
+     * Generate brief winning team score board
      */
     private void generateBriefScoreBoard() {
         System.out.println("***************************************************************");
@@ -85,8 +107,8 @@ public class ScoreBoard {
             System.out.println("                   Winning Team : " + team1.getName());
         }
         System.out.println("***************************************************************");
-        System.out.println(team1.getName() + " :  " + team1.getScore() + "/" +team1.getWickets()+" (Overs "+ team1.getOvers()+")");
-        System.out.println(team2.getName() + " :  " + team2.getScore() + "/" +team2.getWickets()+" (Overs "+ team2.getOvers()+")");
+        System.out.println(team1.getName() + " :  " + team1.getScore() + "/" + team1.getWickets() + " (Overs " + team1.getOvers() + ")");
+        System.out.println(team2.getName() + " :  " + team2.getScore() + "/" + team2.getWickets() + " (Overs " + team2.getOvers() + ")");
         System.out.println("***************************************************************");
     }
 }
